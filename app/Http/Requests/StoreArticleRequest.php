@@ -13,7 +13,8 @@ class StoreArticleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        //authorize the request yani kurallarını vermemiz gerekiyor. Herşey gelebilir diyoruz
+        return true;
     }
 
     /**
@@ -24,7 +25,8 @@ class StoreArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|string|min:2|max:255',
+            'body' => 'required|string|min:10|max:10000',
         ];
     }
 }
